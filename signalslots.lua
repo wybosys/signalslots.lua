@@ -27,6 +27,8 @@ local function _define_class(cls)
     cls.init = fn_new
     cls.dispose = fn_dispose
     cls.fin = fn_dispose
+
+    return cls
 end
 
 local Array = {
@@ -690,8 +692,7 @@ local Object = {
     _signals = nil, -- 信号对象
     _count = 1,
 }
-ss.Object = Object
-_define_class(Object)
+ss.Object = _define_class(Object)
 
 function Object:Declare(cls)
     for k, v in pairs(Object) do
