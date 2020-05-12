@@ -1,9 +1,9 @@
-local ss = {}
+local NS = {}
 local socket = require('socket')
 
 ------------------------------------------------------------------------
 local DateTime = {}
-ss.DateTime = DateTime
+NS.DateTime = DateTime
 function DateTime:Now()
     return socket.gettime() * 1e6
 end
@@ -692,7 +692,7 @@ local Object = {
     _signals = nil, -- 信号对象
     _count = 1,
 }
-ss.Object = _define_class(Object)
+NS.Object = _define_class(Object)
 
 function Object:Declare(cls)
     for k, v in pairs(Object) do
@@ -725,12 +725,12 @@ function Object:drop()
 end
 
 -- 常用信号
-ss.kSignalRemoved = "::nnt::removed"
-ss.kSignalStarting = "::nnt::starting"
-ss.kSignalStarted = "::nnt::started"
-ss.kSignalStopping = "::nnt::stopping"
-ss.kSignalStopped = "::nnt::stopped"
-ss.kSignalAction = "::nnt::action"
-ss.kSignalDone = "::nnt::done"
+NS.kSignalRemoved = "::nnt::removed"
+NS.kSignalStarting = "::nnt::starting"
+NS.kSignalStarted = "::nnt::started"
+NS.kSignalStopping = "::nnt::stopping"
+NS.kSignalStopped = "::nnt::stopped"
+NS.kSignalAction = "::nnt::action"
+NS.kSignalDone = "::nnt::done"
 
-return ss
+return NS
